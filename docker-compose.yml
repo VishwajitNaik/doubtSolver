@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Specifies the Dockerfile in the current directory
+    container_name: nextjs13course
+    ports:
+      - "3000:3000"  # Exposes port 3000 from the container to the host
+    volumes:
+      - .:/app  # Mounts the current directory to /app inside the container
+      - /app/node_modules  # Prevents node_modules from being overwritten
+    environment:
+      - NODE_ENV=development  # Sets the environment variable to development
+    command: npm run dev  # Runs the development server
+    working_dir: /app  # Sets the working directory inside the container
