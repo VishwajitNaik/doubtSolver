@@ -1,11 +1,14 @@
 FROM node:20.18.0 AS base
 
-WORKDIR /src
+WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
-RUN npm install
-
+RUN npm install --production
 COPY . .
 
-CMD npm run dev
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm" ,"run" ,"dev"]
