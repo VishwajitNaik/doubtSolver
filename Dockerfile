@@ -36,4 +36,4 @@ EXPOSE 3000
 ENV NODE_ENV production
 
 # Start the Next.js application
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
